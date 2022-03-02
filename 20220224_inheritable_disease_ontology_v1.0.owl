@@ -1,0 +1,921 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/bwj21/ontologies/20220224_inheritable_disease_ontology_v1.0#"
+     xml:base="http://www.semanticweb.org/bwj21/ontologies/20220224_inheritable_disease_ontology_v1.0"
+     xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/bwj21/ontologies/20220224_inheritable_disease_ontology_v1.0"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasAffectedPerson -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasAffectedPerson">
+        <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPerson"/>
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AffectedPerson"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasHealthyPerson"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasChild -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasChild">
+        <owl:inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasParent"/>
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Parent"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Child"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasGeneVariant -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasGeneVariant">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasGenotype -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasGenotype">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Genotype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasHealthyPerson -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasHealthyPerson">
+        <rdfs:subPropertyOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPerson"/>
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#HealthyPerson"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InheritencePattern"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasParent -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasParent">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Child"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Parent"/>
+        <rdfs:comment>This property expresses known biological parentage. It is possible for persons in a pedigree to have no known parents, a single known parent, or two known parents; however, it is not possible to have three or more biological parents. Chimeric and rare aneuploidy events are not considered here.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasPerson -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPerson">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#inPedigree"/>
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasPhenotype -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasPhenotype">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Phenotype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasSibling -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasSibling">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#inPedigree -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#inPedigree">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasChromosomalSex -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasChromosomalSex">
+        <rdfs:comment>This data property describes a person&apos;s sex for the purposes of determining the chromosome on which pathogenic genes are inherited. Sex chromosome translocations, incomplete penetrance caused by hormone insensitivity syndromes, and certain aneuploidies (Klinefelter Syndrome and X-linked recessive disorders) may not be adequately expressed with this simplified property.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#AffectedPerson -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AffectedPerson">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPhenotype"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Disease"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#AutosomalDominant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AutosomalDominant">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Mendelian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#AutosomalDominantPedigree -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AutosomalDominantPedigree">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasAffectedPerson"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:complementOf>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasParent"/>
+                                                <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Parent"/>
+                                            </owl:Restriction>
+                                        </owl:complementOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasParent"/>
+                                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AffectedPerson"/>
+                                    </owl:Restriction>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#AutosomalDominantVariant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AutosomalDominantVariant">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern"/>
+                        <owl:allValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AutosomalDominant"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#AutosomalRecessive -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AutosomalRecessive">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Mendelian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#AutosomalRecessivePedigree -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AutosomalRecessivePedigree">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#AutosomalRecessiveVariant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#AutosomalRecessiveVariant">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern"/>
+                        <owl:allValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#AutosomalRecessive"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#BiologicalFather -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BiologicalFather">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Parent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasChromosomalSex"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>male</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#BiologicalMother -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#BiologicalMother">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Parent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasChromosomalSex"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>female</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Carrier -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Carrier">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasGenotype"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Heterozygous"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPhenotype"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WildType"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Child -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Child">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasParent"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Parent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Codominant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Codominant">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Non-Mendelian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#CodominantGene -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#CodominantGene">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Codominant"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Disease -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Disease">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Phenotype"/>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WildType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#GeneVariant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeneVariant">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern"/>
+                <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InheritencePattern"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Genotype -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Genotype"/>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#HealthyPerson -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#HealthyPerson">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasPhenotype"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WildType"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Heterozygous -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Heterozygous">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Genotype"/>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Homozygous"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Homozygous -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Homozygous">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Genotype"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#HomozygousDominant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#HomozygousDominant">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Homozygous"/>
+        <owl:disjointWith rdf:resource="http://www.co-ode.org/ontologies/ont.owl#HomozygousRecessive"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#HomozygousRecessive -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#HomozygousRecessive">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Homozygous"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#IncompleteDominant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IncompleteDominant">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Non-Mendelian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#IncompletelyDominantGene -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#IncompletelyDominantGene">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#IncompleteDominant"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#InheritencePattern -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#InheritencePattern"/>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Mendelian -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Mendelian">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InheritencePattern"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Non-Mendelian -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Non-Mendelian">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#InheritencePattern"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Parent -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Parent">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasChild"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Child"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Pedigree -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Person -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Person">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#inPedigree"/>
+                <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasParent"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Parent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasChromosomalSex"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:oneOf>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>female</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>male</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </owl:oneOf>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Phenotype -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Phenotype"/>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Polygenic -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Polygenic">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Non-Mendelian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#PolygenicRiskGene -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#PolygenicRiskGene">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Polygenic"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Sibling -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Sibling">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasSibling"/>
+                        <owl:someValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Sibling"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#WildType -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#WildType">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Phenotype"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#X-linkedDominant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#X-linkedDominant">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Mendelian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#X-linkedDominantPedigree -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#X-linkedDominantPedigree">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#X-linkedDominantVariant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#X-linkedDominantVariant">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern"/>
+                        <owl:allValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#X-linkedDominant"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#X-linkedRecessive -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#X-linkedRecessive">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Mendelian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#X-linkedRecessivePedigree -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#X-linkedRecessivePedigree">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#X-linkedRecessiveVariant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#X-linkedRecessiveVariant">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasInheritancePattern"/>
+                        <owl:allValuesFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#X-linkedRecessive"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Y-linked -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Y-linked">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Mendelian"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Y-linkedPedigree -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Y-linkedPedigree">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasAffectedPerson"/>
+                        <owl:allValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.co-ode.org/ontologies/ont.owl#hasChromosomalSex"/>
+                                <owl:hasValue>male</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#A -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#A">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <ont:hasParent rdf:resource="http://www.co-ode.org/ontologies/ont.owl#R"/>
+        <ont:hasParent rdf:resource="http://www.co-ode.org/ontologies/ont.owl#S"/>
+        <ont:hasChromosomalSex>female</ont:hasChromosomalSex>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#BB -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#BB">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <ont:hasChild rdf:resource="http://www.co-ode.org/ontologies/ont.owl#S"/>
+        <ont:hasParent rdf:resource="http://www.co-ode.org/ontologies/ont.owl#YY"/>
+        <ont:hasPhenotype rdf:resource="http://www.co-ode.org/ontologies/ont.owl#NormalKidney"/>
+        <ont:hasSibling rdf:resource="http://www.co-ode.org/ontologies/ont.owl#DD"/>
+        <ont:hasChromosomalSex>male</ont:hasChromosomalSex>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#DD -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#DD">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <ont:hasChild rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Me"/>
+        <ont:hasParent rdf:resource="http://www.co-ode.org/ontologies/ont.owl#YY"/>
+        <ont:hasPhenotype rdf:resource="http://www.co-ode.org/ontologies/ont.owl#PKD"/>
+        <ont:hasChromosomalSex>male</ont:hasChromosomalSex>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#MM -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#MM">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <ont:hasChromosomalSex>female</ont:hasChromosomalSex>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Me -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Me">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <ont:hasParent rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MM"/>
+        <ont:hasChromosomalSex>male</ont:hasChromosomalSex>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#NormalKidney -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#NormalKidney">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#WildType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#PKD -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#PKD">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Disease"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#R -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#R">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <ont:hasChromosomalSex>female</ont:hasChromosomalSex>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#S -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#S">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <ont:hasPhenotype rdf:resource="http://www.co-ode.org/ontologies/ont.owl#NormalKidney"/>
+        <ont:hasChromosomalSex>male</ont:hasChromosomalSex>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Test -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Test">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+        <ont:hasAffectedPerson rdf:resource="http://www.co-ode.org/ontologies/ont.owl#DD"/>
+        <ont:hasPerson rdf:resource="http://www.co-ode.org/ontologies/ont.owl#A"/>
+        <ont:hasPerson rdf:resource="http://www.co-ode.org/ontologies/ont.owl#BB"/>
+        <ont:hasPerson rdf:resource="http://www.co-ode.org/ontologies/ont.owl#MM"/>
+        <ont:hasPerson rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Me"/>
+        <ont:hasPerson rdf:resource="http://www.co-ode.org/ontologies/ont.owl#R"/>
+        <ont:hasPerson rdf:resource="http://www.co-ode.org/ontologies/ont.owl#S"/>
+        <ont:hasPerson rdf:resource="http://www.co-ode.org/ontologies/ont.owl#YY"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#YY -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#YY">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <ont:hasChromosomalSex>male</ont:hasChromosomalSex>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#AutosomalDominant"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#AutosomalRecessive"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#X-linkedDominant"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#X-linkedRecessive"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Y-linked"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#GeneVariant"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Genotype"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#InheritencePattern"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Pedigree"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+            <rdf:Description rdf:about="http://www.co-ode.org/ontologies/ont.owl#Phenotype"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
